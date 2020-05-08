@@ -4,11 +4,14 @@ class Ticket:
         self.source = source
         self.destination = destination
 
-
+d = {}
 def reconstruct_trip(tickets, length):
-    
-    """
-    YOUR CODE HERE
-    """
-
+    route = []
+    for i in tickets:
+        d[i.source] = i.destination
+    node = "NONE"
+    while len(route) < length:
+        route.append(d[node])
+        node = d[node]
+    print(route)
     return route

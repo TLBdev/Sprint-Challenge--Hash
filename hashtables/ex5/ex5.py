@@ -1,9 +1,17 @@
 def finder(files, queries):
-
-    """
-    YOUR CODE HERE
-    """
-
+    result = []
+    d = {}
+    for i in files:
+        split = i.split('/')
+        if split[-1] not in d:
+            d[split[-1]] = [i]
+        else: 
+            d[split[-1]].append(i)
+    for i in queries:
+        if i in d:
+            for x in range(len(d[i])): 
+                result.append(d[i][x])
+    print(result)
     return result
 
 
